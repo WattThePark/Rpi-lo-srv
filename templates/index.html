@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Welcome!</title>
+</head>
+<body>
+  <h1>Hello from the RaspberryPi</h1>
+  <div>The value is : <span id="value"></span></div>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+    setInterval(function() {
+      $.get('/value').done(function(data) {
+        var spanValue = $('#value');
+        spanValue.html(data.value);
+      });
+    }, 1000);
+  </script>
+</body>
+</html>
