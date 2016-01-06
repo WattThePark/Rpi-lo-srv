@@ -6,16 +6,17 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(12, GPIO.IN)
 
-
+# Main Flask application
 app = Flask(__name__)
 
 @app.route('/')
 def index(name=None):
+    """Getting index.html"""
     return render_template('index.html')
 
 @app.route('/value')
 def value():
-    #TODO: inject GPIO value
+    """Returns the GPIO12 value with a json serialization"""
     print 'value:', GPIO.input(12)
     return jsonify(value=GPIO.input(12))
 
