@@ -9,11 +9,11 @@
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript">
     setInterval(function() {
-      $.get('/value').done(function(data) {
+      $.get('/watt').done(function(data) {
         var spanValue = $('#value');
-        spanValue.html(data.value);
+        spanValue.html(data + ' W');
       });
-    }, 1000);
+    }, 200);
   </script>
 </body>
 </html>
